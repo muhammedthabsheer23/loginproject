@@ -1,81 +1,99 @@
-.signupheader
+.signup-header {
+    
+    
+    height: 100vh; /* Use viewport height for full screen */
+    padding-top: 150px;
+    background-image: url("https://img.lovepik.com/photo/50052/3939.jpg_wh300.jpg");
+    background-size: cover; /* Cover the entire container */
+    background-position: center; /* Center the image */
+  }
+  
+  /* The rest of your CSS styles remain unchanged */
+  .mainsignup {
+    background-color: rgb(230, 237, 242);
+    border-radius: 1rem;
+    margin: auto;
+    height: 450px;
+    width: 550px;
+  }
+  
+.label-signupuser
 {
-    width: 500px;
-    height: 500px;
-    background-color:white;
-   margin :auto;
-   margin-top :100px;
-   border-radius: 1rem;
+    color: blue;
+    margin-right: 160px;
 }
+.label-signuppas
+{
+    color: blue;
+    margin-right: 165px;
+}
+.label-signupconf
+{
+    color: blue;
+    margin-right: 105px;
+}
+.drops
+{
+    width: 100px;
+    background-color: blue;
+    color: white;
+    
+}
+  
+  .label-signupuser,
+  .label-signuppas,
+  .label-signupconf {
+    color: blue;
+  }
+  
+  .signup-form {
+    margin-top: 50px;
+    
+  }
+  
+  .selectore {
+    border-radius: 50px 50px;
+    background: transparent;
+    border-color: blue;
+    color: white;
+    border-radius: 50px 50px;
+    width: 250px;
+    height: 40px;
+    border: solid 2px blue;
+    margin-left: 60px;
+  }
+  
+  .drops {
+    background-color: blue;
+    color: white;
+  }
+  
+  .signup-butt {
+    margin-top: 40px;
+    background-color: rgb(34, 7, 63);
+    border: 1px solid rgb(34, 7, 63);
+    border-radius: 50px 50px;
+    color: white;
+    height: 40px;
+    width: 300px;
+  }
+ .inputtext
+ {
+  width: 250px;
+  height: 40px;
+  border: 2px solid blue;
+  border-radius: 50px 50px;
+  
+ }
+ 
+ @media screen and (max-width: 500px) {
+
 .signup-header
 {
-    
-    background-image: linear-gradient(-225deg, #9EFBD3 0%, #57E9F2 48%, #45D4FB 100%);
-    height: 780px;
-}
-.signup-input
-{
-    margin-left: 150px;
-    color: blue;
-    width: 250px;
-    border-color: blue;
-    border-radius: 50px 50px;
+  display: inline-block;
+  background-size: cover;
+  padding-top :200px;
+  height: 100vh;
 
 }
-.signup-form
-{
-    display: flex;
-}
-.signup-userlabel
-{
-    margin-left: 10px;
-    color: blue;
-}
-.signup-confirmlabel
-{
-    color: blue;
-    margin-left: 10px;
-}
-.signup-inputconfirm
-{
-    margin-left: 80px;
-    color: blue;
-    width: 250px;
-    border-color: blue;
-    border-radius: 50px 50px;
-}
-.signup-branchlabel
-{
-    color: blue;
-    margin-left: 10px;
-}
-.signup-option
-{
-    margin-left: 170px;
-    color: blue;
-    width: 250px;
-    border-color: blue;
-    border-radius: 50px 50px;
-}
-@media screen and (max-width: 602px) {
-    .signup-header{
-        display: inline-block;
-      padding: 20px;
-    }
-    .signup-header1{
-        display: inline-block;
-    }
-  
-   
-    .signup-form{
-      margin-top: 20px;
-    }
-  
-    .login-button {
-      width: 50%;
-    }
-  
-    .signup-userlabel {
-      text-align: left;
-    }
-  }
+ }

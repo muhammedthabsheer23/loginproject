@@ -4,54 +4,46 @@ import './Signup1.css'
 function Signup1() {
   return (
     <div className='signup-header'>
-      
-    <Container className='signup-header1'>
-    <Row>
-      <Col>
- <div className='signupheader'>
-  <h1>signup</h1><br /><br />
-  <div className="signup-form">
-  <Form.Label  className='signup-userlabel'>USERNAME</Form.Label>
-    <Form.Control className='signup-input'
-      type="text"
-      id="inputPassword5"
-      aria-describedby="passwordHelpBlock"
-    />
-    </div><br />
-    <div className="signup-form">
-  <Form.Label  className='signup-userlabel'>PASSWORD</Form.Label>
-    <Form.Control className='signup-input'
-      type="password"
-      id="inputPassword5"
-      aria-describedby="passwordHelpBlock"
-    />
-    </div><br />
-    <div className="signup-form">
-  <Form.Label  className='signup-confirmlabel'>CONFIRMPASSWORD</Form.Label>
-    <Form.Control className='signup-inputconfirm'
-      type="password"
-      id="inputPassword5"
-      aria-describedby="passwordHelpBlock"
-    />
-    </div><br />
-    <div className="signup-form">
-    <Form.Label className='signup-branchlabel' htmlFor="inputPassword5">BRANCH</Form.Label>
-     <Form.Select className='signup-option' aria-label="Default select example">
-   <option hidden selected>Select one...</option>
-   <option value="1">branch 1</option>
-   <option value="2">branch 2</option>
-   <option value="3">branch 3</option>
- </Form.Select>
- </div><br />
- <button className='login-button' type="submit">
-          Login
-        </button>
- </div>
-       
+    <div className='mainsignup'>
+      <h1>Signup</h1>
+<Form className='signup-form'>
+    <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Label className='label-signupuser'>Username </Form.Label>
+      <input className='inputtext'
+            type="text"
+            required/>
+     
+    </Form.Group>
+
+    <Form.Group className="mb-3" controlId="formBasicPassword">
+      <Form.Label className='label-signuppas'> Password</Form.Label>
+      <input className='inputtext'
+            type="text"
+            required/>
+    </Form.Group>
     
-</Col>  </Row>
-  </Container>
+    <Form.Group className="mb-3" controlId="formBasicPassword">
+      <Form.Label className='label-signupconf'> Confirm Password</Form.Label>
+      <input className='inputtext'
+            type="text"
+            required/>
+    </Form.Group>
+   <Form.Label className='label-signupconf'> Branches</Form.Label>
+<select id="dropdown" name="dropdown" className='selectore'>
+  <option className='drops' value="option1">Option 1</option>
+  <option className='drops' value="option2">Option 2</option>
+  <option className='drops' value="option3">Option 3</option>
+
+</select>
+ </Form>
+    
+        <button className='signup-butt' type="submit">
+          signup
+        </button>
+
   </div>
+  </div>
+ 
   )
 }
 

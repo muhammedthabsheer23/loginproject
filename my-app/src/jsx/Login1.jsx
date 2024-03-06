@@ -1,9 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button,Form, Col, Container, Row } from 'react-bootstrap'
 import { FcGoogle } from "react-icons/fc";
 import './Login1.css'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 function Login1() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+  
+
+  const handleLogin = () => {
+    if (username === 'admin' && password === '123') {
+      
+      navigate(`/admindashboard`);
+    }
+    else if (username === 'user' && password === '111') {
+      
+        navigate(`/userdashboard`);
+      }
+     else {
+      alert('Invalid password or username');
+    }
+  };
   return (
     <div className='login-header'>
       
@@ -16,16 +34,18 @@ function Login1() {
       </div>
 <div className="login-form">
   <h1>LOGIN</h1><br />
-      <Form.Label className='login-userlabel' htmlFor="inputPassword5">USERNAME</Form.Label>
+      <Form.Label className='login-userlabel' >USERNAME</Form.Label>
     <Form.Control className='login-input'
-      type="password"
+      type="text"
       id="inputPassword5"
-      aria-describedby="passwordHelpBlock"
+      onChange={(e) => setUsername(e.target.value)}
+     
     />
      <Form.Label className='login-userlabel' htmlFor="inputPassword5">PASSWORD</Form.Label>
     <Form.Control className='login-input'
       type="password"
       id="inputPassword5"
+      onChange={(e) =>setPassword(e.target.value)}
       aria-describedby="passwordHelpBlock"
     />
      <Form.Label className='login-branchlabel' htmlFor="inputPassword5">BRANCH</Form.Label>
@@ -35,7 +55,7 @@ function Login1() {
    <option value="2">branch 2</option>
    <option value="3">branch 3</option>
  </Form.Select>
- <button className='login-button' type="submit">
+ <button className='login-button'onClick={handleLogin} type="submit">
           Login
         </button>
        
