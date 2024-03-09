@@ -2,7 +2,6 @@ import * as React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
-
 import List from '@mui/material/List';
 import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
@@ -17,7 +16,9 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import { useNavigate } from 'react-router-dom';
-
+import { FaUser } from "react-icons/fa";
+import { useAppstore } from './Appstore';
+import Navbar from './Navbar';
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
@@ -71,20 +72,24 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 export default function Sidenav() {
   const theme = useTheme();
-  const [open, setOpen] = React.useState(true);
+  // const [open, setOpen] = React.useState(true);
+  const open = useAppstore((state) => state.dopen);
  const navigate=useNavigate();
+  
  
   return (
+    <>
+    <Navbar/>
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      
-      <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
-          <IconButton onClick={()=>setOpen(!open)}>
+      <Box height={30} /> 
+      <Drawer color='#77aaff' variant="permanent" open={open}>
+        {/* <DrawerHeader>
+          <IconButton >
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
-        </DrawerHeader>
-        <Divider />
+        </DrawerHeader> */}
+        <Divider /><br /><br /><br />
         <List>
         <ListItem  disablePadding sx={{ display: 'block' }} >
               <ListItemButton
@@ -106,6 +111,7 @@ export default function Sidenav() {
                 <ListItemText primary="Product" sx={{ opacity: open ? 1 : 0 }}onClick={()=>{navigate("/Product")}} />
               </ListItemButton>
             </ListItem>
+            
         </List>
         <Divider />
         <List>
@@ -180,5 +186,6 @@ export default function Sidenav() {
       
      
     </Box>
+    </>
   );
 }

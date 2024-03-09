@@ -23,7 +23,7 @@ function Signup1() {
     </Form.Group>
     
     <Form.Group className="mb-3" controlId="formBasicPassword">
-      <Form.Label className='label-signupconf'> Confirm Password</Form.Label>
+      <Form.Label className='label-signupconf' > Confirm Password</Form.Label>
       <input className='inputtext'
             type="text"
             required/>
