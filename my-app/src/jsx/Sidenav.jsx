@@ -19,6 +19,13 @@ import { useNavigate } from 'react-router-dom';
 import { FaUser } from "react-icons/fa";
 import { useAppstore } from './Appstore';
 import Navbar from './Navbar';
+import ListSubheader from '@mui/material/ListSubheader';
+import Collapse from '@mui/material/Collapse';
+import DraftsIcon from '@mui/icons-material/Drafts';
+import SendIcon from '@mui/icons-material/Send';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+import StarBorder from '@mui/icons-material/StarBorder';
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
@@ -75,23 +82,28 @@ export default function Sidenav() {
   // const [open, setOpen] = React.useState(true);
   const open = useAppstore((state) => state.dopen);
  const navigate=useNavigate();
+ const [listopen, setListOpen] = React.useState(true);
+
+ const handleClick = () => {
+   setListOpen(!listopen);
+ };
   
  
   return (
     <>
     <Navbar/>
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
-      <Box height={30} /> 
-      <Drawer color='#77aaff' variant="permanent" open={open}>
+    <Box sx={{ display: 'flex'}}>
+      <CssBaseline  />
+      <Box  height={30}  /> 
+      <Drawer  variant="permanent" open={open}>
         {/* <DrawerHeader>
           <IconButton >
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </DrawerHeader> */}
         <Divider /><br /><br /><br />
-        <List>
-        <ListItem  disablePadding sx={{ display: 'block' }} >
+        <List >
+        <ListItem  disablePadding sx={{ display: 'block', }} >
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -104,17 +116,54 @@ export default function Sidenav() {
                     minWidth: 0,
                     mr: open ? 3 : 'auto',
                     justifyContent: 'center',
+                    
                   }}
                 >
                   <InboxIcon /> 
                 </ListItemIcon>
-                <ListItemText primary="Product" sx={{ opacity: open ? 1 : 0 }}onClick={()=>{navigate("/Product")}} />
+                <ListItemText primary="Dashboard" sx={{ opacity: open ? 1 : 0 }}onClick={()=>{navigate("")}} />
+                
               </ListItemButton>
             </ListItem>
             
+            
         </List>
         <Divider />
-        <List>
+        <List >
+        
+        <ListItemButton onClick={handleClick}>
+        <ListItemIcon>
+          <InboxIcon />
+        </ListItemIcon>
+        <ListItemText primary="Product" />
+        {listopen ? <ExpandLess /> : <ExpandMore />}
+      </ListItemButton>
+      <Collapse in={listopen} timeout="auto" unmountOnExit>
+        <List component="div" disablePadding>
+          <ListItemButton sx={{ pl: 4 }}>
+            <ListItemIcon>
+              <StarBorder />
+            </ListItemIcon>
+            <ListItemText  primary="Product1" onClick={()=>{navigate("/Product")}}/>
+          </ListItemButton>
+          <ListItemButton sx={{ pl: 4 }}>
+            <ListItemIcon>
+              <StarBorder />
+            </ListItemIcon>
+            <ListItemText primary="Product2" />
+          </ListItemButton>
+          <ListItemButton sx={{ pl: 4 }}>
+            <ListItemIcon>
+              <StarBorder />
+            </ListItemIcon>
+            <ListItemText primary="Product" />
+          </ListItemButton>
+        </List>
+      </Collapse>
+            
+        </List>
+        <Divider />
+        <List >
         <ListItem  disablePadding sx={{ display: 'block' }} >
               <ListItemButton
                 sx={{
@@ -135,9 +184,9 @@ export default function Sidenav() {
                 <ListItemText primary="reports" sx={{ opacity: open ? 1 : 0 }}onClick={()=>{navigate("/Product")}} />
               </ListItemButton>
             </ListItem>
-        </List>
+        </List >
         <Divider />
-        <List>
+        <List >
         <ListItem  disablePadding sx={{ display: 'block' }} >
               <ListItemButton
                 sx={{
@@ -160,7 +209,7 @@ export default function Sidenav() {
             </ListItem>
         </List>
         <Divider />
-        <List>
+        <List  >
         <ListItem disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
@@ -179,6 +228,7 @@ export default function Sidenav() {
                  <InboxIcon />
                 </ListItemIcon>
                 <ListItemText primary="Category" sx={{ opacity: open ? 1 : 0 }} onClick={()=>{navigate("/category")}}/>
+                
               </ListItemButton>
             </ListItem>
         </List>

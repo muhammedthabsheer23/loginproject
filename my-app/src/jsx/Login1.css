@@ -27,12 +27,12 @@
 .login-userlabel
 {
     color: blue;
-    margin-right: 235px;
+    margin-right: 280px;
 }
 .login-branchlabel
 {
     color: blue;
-    margin-right: 285px;
+    margin-right: 305px;
 }
 .login-form
 {
@@ -106,10 +106,15 @@
 {
   color: #1a94b8;
 }
-
+.option-branch:hover
+{
+background-color: #1a94b8;
+border-radius: 2px;
+color: white;
+}
 h1
 {
-    color:  rgb(34, 7, 63);
+    color:  rgb(55, 13, 95); 
     padding-top: 10px;
 }
 .login-social

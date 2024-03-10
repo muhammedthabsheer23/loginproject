@@ -70,7 +70,7 @@ const handlePasswordChange = (prop) => (event) => {
               </div>
               <div className="login-form">
                 <h1>LOGIN</h1><br />
-                <Form.Label className='login-userlabel' >USERNAME</Form.Label>
+                <Form.Label className='login-userlabel' >Username</Form.Label>
                 <FormControl  >
     <TextField className='login-input'
     size="small"
@@ -80,13 +80,13 @@ const handlePasswordChange = (prop) => (event) => {
        
     />
 </FormControl>
-                <Form.Label className='login-userlabel' htmlFor="inputPassword5">PASSWORD</Form.Label>
+                <Form.Label className='login-userlabel' htmlFor="inputPassword5">Password</Form.Label>
                 <FormControl  >
     <TextField className='login-input'
     size="small"
         type={values.showPassword ? "text" : "password"}
-        onChange={handlePasswordChange("password")}
-        value={values.password}
+        onChange={(e) => setPassword(e.target.value)}
+        
         InputProps={{
             endAdornment: (
                 <InputAdornment position="end">
@@ -101,16 +101,16 @@ const handlePasswordChange = (prop) => (event) => {
         }}
     />
 </FormControl>
-<FormControl  sx={{ m: 0,ml:4, width: 350 }}>
+<FormControl  sx={{ m: 0,ml:0, width: 350 }}>
 <Form.Label className='login-branchlabel' htmlFor="inputPassword5">Branches</Form.Label>
         <Select  
         fullWidth
         size="small"
         >
           
-                        <option value="1">branch1</option>
-                        <option value="2">branch2</option>
-                        <option value="3">branch3</option>
+                        <option className='option-branch' value="1">branch1</option>
+                        <option className='option-branch' value="2">branch2</option>
+                        <option className='option-branch' value="3">branch3</option>
 
         </Select>
       </FormControl>
